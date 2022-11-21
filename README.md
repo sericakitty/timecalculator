@@ -10,7 +10,7 @@
 
 ##No need :)
 
-##Program is running on https://sericakitty.github.io/timecalculator/
+##Program is running on https://sericakitty.github.io/time_calculator/
 
 ##Licence
 
