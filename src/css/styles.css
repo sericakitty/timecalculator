@@ -1,0 +1,544 @@
+/* Reset browser formatting */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Root pseudo class for css variables. Easy to maintain color theme etc. */
+:root {
+    --main-bg-color: linear-gradient(90deg, rgba(255, 200, 255, 1) 0%, rgba(255, 220, 255, 1) 25%, rgba(255, 232, 255, 1) 50%, rgba(255, 220, 255, 1) 75%, rgba(255, 200, 255, 1) 100%);
+    --bg-fallback-color: rgb(255, 200, 255);
+    --main-header-color: rgb(255, 82, 255);
+    --main-text-color: #af32a5;
+    --source-code-link: rgb(111, 213, 231);
+    --navbar-bg-color: linear-gradient(90deg, rgba(255, 200, 255, 1) 10%, rgba(255, 200, 255, 1) 90%);
+    --navbar-fallback-color: rgb(255, 200, 255);
+    --navtext-color: #af32a5;
+    --navtext-hover-color: #ff00ea;
+    --dropdown-hover-color: #ff00ea;
+    --main-link-color: #ff00ea;
+    --link-hover-color: magenta;
+    --main-btn-color: rgb(245, 111, 245);
+    --btn-text-color: #ffffff;
+    --text-area-color: #f8d4ff;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background: var(--bg-fallback-color);
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
+    width: 100%;
+}
+
+
+/* For fixing footer to bottom. Apply to main container, so main is min 70% viewport height and footer is pushed to bottom */
+.footerfixer {
+    min-height: 70vh;
+}
+
+main {
+
+    width: 90%;
+    margin: auto;
+    line-height: 30px;
+}
+
+.sourcecode {
+    font-style: italic;
+    color: var(--source-code-link);
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: center;
+    margin: 0px 0px 25px 0px;
+}
+
+.bottommargin {
+    margin-bottom: 20px;
+}
+
+.topmargin {
+    margin-top: 30px;
+}
+
+.description_box {
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+/* Container just for centering elements --------------------------------------------- */
+
+.centeringcontainer {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* TEMPORARY FIX FOR COLOR PROBLEM IN NAV BAR */
+.navtext:not(:active) {
+    color: var(--navbar-link-color);
+}
+
+
+.navbar {
+    background: var(--navbar-fallback-color);
+    background: var(--navbar-bg-color);
+    box-shadow: 0 2px 2px -2px var(--navbar-bg-color);
+    margin-bottom: 40px;
+}
+
+.navtext {
+    color: var(--navtext-color);
+}
+
+.navtext:hover {
+    color: var(--navtext-hover-color);
+}
+
+
+
+a {
+    color: var(--main-link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+h1 {
+    color: var(--main-header-color);
+    text-align: center;
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 300%;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--main-header-color);
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 200%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color: var(--main-header-color);
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 150%;
+    margin-top: 30px;
+}
+
+h4 {
+    margin: 10px 0px 10px 0px;
+}
+
+
+.srccodelink {
+    color: var(--src-code-color);
+}
+
+.srccodelink:hover {
+    color: var(--src-code-hover);
+}
+
+
+
+#profilepic {
+    width: 100%;
+    max-width: 150px;
+    float: right;
+    margin: 5px 0px 10px 30px;
+}
+
+img {
+    border-radius: 12px;
+}
+
+p {
+    margin-bottom: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Inputs */
+
+input {
+    border-radius: 8px;
+    background-color: var(--text-area-color);
+}
+
+input:focus {
+    outline: none;
+}
+
+select {
+    border-radius: 8px;
+    background-color: var(--navbar-fallback-color);
+    padding: 7px;
+}
+
+select:focus {
+    outline: none;
+}
+
+textarea {
+    border-radius: 8px;
+    background-color: var(--text-area-color);
+}
+
+textarea:focus {
+    outline: none;
+}
+
+
+/* Flexbox for imgs in Python projects */
+
+.flexboxforimages {
+    margin: 50px 0px 30px 0px;
+}
+
+/* Lists */
+
+ul {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.languageslist li {
+    margin-bottom: 5px;
+}
+
+/*  Modules in list */
+
+.modules {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.btn {
+    color: var(--btn-text-color);
+    background-color: var(--main-btn-color);
+    border-radius: 8px;
+    width: 100px;
+}
+
+#hidden_div {
+    display: none;
+}
+
+/* time_calculator ---------------------------------------------------------------------*/
+
+
+
+
+
+#timeStartDiv,
+#weekdayDiv,
+#timeAddedDiv {
+    display: none;
+}
+
+
+.container {
+    position: relative;
+}
+
+.customarcenter {
+
+    border-radius: 8px;
+    padding: 1px 10px 2px 4px;
+    margin: auto;
+    margin-top: 2px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid rgb(191, 135, 236);
+    width: fit-content;
+
+}
+
+.horizontalcenter {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 5px;
+    position: relative;
+
+
+}
+/* Reset browser formatting */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Root pseudo class for css variables. Easy to maintain color theme etc. */
+:root {
+    --main-bg-color: linear-gradient(90deg, rgba(255, 200, 255, 1) 0%, rgba(255, 220, 255, 1) 25%, rgba(255, 232, 255, 1) 50%, rgba(255, 220, 255, 1) 75%, rgba(255, 200, 255, 1) 100%);
+    --bg-fallback-color: rgb(255, 200, 255);
+    --main-header-color: rgb(255, 82, 255);
+    --main-text-color: #af32a5;
+    --source-code-link: rgb(111, 213, 231);
+    --navbar-bg-color: linear-gradient(90deg, rgba(255, 200, 255, 1) 10%, rgba(255, 200, 255, 1) 90%);
+    --navbar-fallback-color: rgb(255, 200, 255);
+    --navtext-color: #af32a5;
+    --navtext-hover-color: #ff00ea;
+    --dropdown-hover-color: #ff00ea;
+    --main-link-color: #ff00ea;
+    --link-hover-color: magenta;
+    --main-btn-color: rgb(245, 111, 245);
+    --btn-text-color: #ffffff;
+    --text-area-color: #f8d4ff;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background: var(--bg-fallback-color);
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
+    width: 100%;
+}
+
+
+/* For fixing footer to bottom. Apply to main container, so main is min 70% viewport height and footer is pushed to bottom */
+.footerfixer {
+    min-height: 70vh;
+}
+
+.footer {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+    clear: both;
+    position: relative;
+}
+
+main {
+
+    width: 90%;
+    margin: auto;
+    line-height: 30px;
+}
+
+.sourcecode {
+    font-style: italic;
+    color: var(--source-code-link);
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: center;
+    margin: 0px 0px 25px 0px;
+}
+
+.bottommargin {
+    margin-bottom: 20px;
+}
+
+.topmargin {
+    margin-top: 30px;
+}
+
+.description_box {
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+/* Container just for centering elements --------------------------------------------- */
+
+.centeringcontainer {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* TEMPORARY FIX FOR COLOR PROBLEM IN NAV BAR */
+.navtext:not(:active) {
+    color: var(--navbar-link-color);
+}
+
+
+.navbar {
+    background: var(--navbar-fallback-color);
+    background: var(--navbar-bg-color);
+    box-shadow: 0 2px 2px -2px var(--navbar-bg-color);
+    margin-bottom: 40px;
+}
+
+.navtext {
+    color: var(--navtext-color);
+}
+
+.navtext:hover {
+    color: var(--navtext-hover-color);
+}
+
+
+
+a {
+    color: var(--main-link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+h1 {
+    color: var(--main-header-color);
+    text-align: center;
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 300%;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--main-header-color);
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 200%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color: var(--main-header-color);
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 150%;
+    margin-top: 30px;
+}
+
+h4 {
+    margin: 10px 0px 10px 0px;
+}
+
+
+.srccodelink {
+    color: var(--src-code-color);
+}
+
+.srccodelink:hover {
+    color: var(--src-code-hover);
+}
+
+
+
+#profilepic {
+    width: 100%;
+    max-width: 150px;
+    float: right;
+    margin: 5px 0px 10px 30px;
+}
+
+img {
+    border-radius: 12px;
+}
+
+p {
+    margin-bottom: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Inputs */
+
+input {
+    border-radius: 8px;
+    background-color: var(--text-area-color);
+}
+
+input:focus {
+    outline: none;
+}
+
+select {
+    border-radius: 8px;
+    background-color: var(--navbar-fallback-color);
+    padding: 7px;
+}
+
+select:focus {
+    outline: none;
+}
+
+textarea {
+    border-radius: 8px;
+    background-color: var(--text-area-color);
+}
+
+textarea:focus {
+    outline: none;
+}
+
+
+/* Flexbox for imgs in Python projects */
+
+.flexboxforimages {
+    margin: 50px 0px 30px 0px;
+}
+
+/* Lists */
+
+ul {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.languageslist li {
+    margin-bottom: 5px;
+}
+
+/*  Modules in list */
+
+.modules {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.btn {
+    color: var(--btn-text-color);
+    background-color: var(--main-btn-color);
+    border-radius: 8px;
+    width: 100px;
+}
+
+#hidden_div {
+    display: none;
+}
+
+/* time_calculator ---------------------------------------------------------------------*/
+
+
+
+
+
+#timeStartDiv,
+#weekdayDiv,
+#timeAddedDiv {
+    display: none;
+}
+
+
+.container {
+    position: relative;
+}
+
+.customarcenter {
+
+    border-radius: 8px;
+    padding: 1px 10px 2px 4px;
+    margin: auto;
+    margin-top: 2px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid rgb(191, 135, 236);
+    width: fit-content;
+
+}
+
+.horizontalcenter {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 5px;
+    position: relative;
+
+
+}

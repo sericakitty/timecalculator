@@ -1,0 +1,121 @@
+
+</html>
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Serica's Web Dev Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+
+
+
+  </head>
+
+  <body>
+
+
+    <nav>
+
+      <ul class="nav justify-content-center navbar">
+
+        <li class="nav-item">
+          <a class="nav-link navtext" href="https://sericakitty.github.io/">Home</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+    <main class="footerfixer">
+      <h1>Time Calculator</h1>
+      <div class="sourcecode"><a href="https://github.com/sericakitty/timecalculator" class=" srccodelink " target="_blank">Source code link</a></div>
+
+      <div class="customarcenter">
+        <p>
+          This program will calculate the time between two dates and times.
+        </p>
+        <div class="horizontalcenter">
+          <label for="clockSystem"></label>
+          <select name="clockSystem" id="clockSystem">
+            <option selected disabled value="">Choose Time:</option>
+            <option value="12clock">12-hour clock</option>
+            <option value="24clock">24-hour clock</option>
+          </select>
+        </div>
+
+        <div class="horizontalcenter">
+
+          <div id="timeStartDiv">
+            <span>Input starting time:</span>
+            <div>
+              <input id='startHours' class="customarwith" min="1" max="12" value="1" type="number" />
+              <span class="customarwith">:</span>
+              <input id='startMinutes' class="customarwith" min="0" max="59" type="number" />
+
+              <label for="timeForm"></label>
+              <select name="timeForm" id="timeForm">
+                <option selected disabled value="">AM/PM?</option>
+                <option value="am">AM</option>
+                <option value="pm">PM</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div id="weekdayDiv">
+            <label for="weekday"></label>
+            <select name="weekday" id="weekday">
+              <option selected disabled value="">Select Weekday (optional):</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Thuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thurday">Thurday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+              <option value="sunday">Sunday</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="timeAddedDiv" class="horizontalcenter">
+          <span>Input added time:</span>
+          <div>
+            <input id='startHoursAdded' class="customarwith" type="number" min=0 max="999" value='0' />
+            <span class="customarwith">:</span>
+            <input id='startMinutesAdded' class="customarwith" type="number" min='0' max='59' value="0" />
+          </div>
+        </div>
+
+
+      </div>
+      <div class="horizontalcenter">
+        <button id="funcbutton" type="button" class="btn btn-pink">Print time</button>
+      </div>
+
+      <div id="warningDiv" class="horizontalcenter"></div>
+      <div id="outputDiv" class="horizontalcenter"></div>
+
+
+      <py-script src="./src/timecalculator.py"></py-script>
+
+
+    </main>
+
+    
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <footer class="footer" id="footer"></footer>
+
+  </body>
+
+</html>
