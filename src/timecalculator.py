@@ -1,18 +1,9 @@
 from js import document # type: ignore
 import datetime
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# 
-# Functio showTimeFormDiv will call resetInputValues - function which reset all input values
-# 
-# After that functio check which clockSystem value user have choisen.
-# 
-#   if clockSystem value is '12clock', function will display next input but hides othes for valid values
-# 
-#   if clockSystem value is '24clock', function will hide timeFormatDiv, putting timeFormat first index default value and diplay next three div element, putting 
-# 
+
 def showTimeFormDiv(*args):  
     
-    resetInputValues(*args)
+    resetInputValues()
     
     if clockSystem.value == '12clock':
         timeStartDiv.style.display = 'inline'      # hide start time
@@ -34,7 +25,8 @@ def showTimeFormDiv(*args):
     
 def showTimeDiv(*args):
     
-  resetInputValues(*args)  
+  resetInputValues()
+  
   timeStartDiv.style.display = 'block'
   weekdayDiv.style.display = 'block'
   timeAddedDiv.style.display = 'block'
@@ -42,6 +34,7 @@ def showTimeDiv(*args):
 
 def resetInputValues(*args):
     warningDiv.textContent = ""
+    outputDiv.textContent = ""
     
     startMinutes.min = '0'
     startMinutes.max = '59'
@@ -67,37 +60,43 @@ def resetInputValues(*args):
 
 
 def checkValues(*args):
-    output = ""
-    if clockSystem.value == "":
-        output += ' Clock time required'
-    else:
-        if clockSystem.value == '12clock' and timeForm.value == "":
-            output += ' Clock system required'
-            
-            
-        if clockSystem.value == '12clock' and not timeForm.value == "":    
-            if 0 > int(str(startHours.value)) < 23 or 0 > int(str(startMinutes.value)) < 59 or 0 > int(str(startHours.value)) < 23 and 0 > int(str(startMinutes.value)) < 59:
-                output += ' Starting time required'
-            
-            if 0 > int(str(startHoursAdded.value)) < 999 or 0 > int(str(startMinutesAdded.value)) < 59 or 0 > int(str(startHoursAdded.value)) < 999 and 0 > int(str(startMinutesAdded.value)) < 59:
-                output += ' Added time required'
+    outputlist = []
         
-        if clockSystem.value == '24clock':
-            
-            if 0 > int(str(startHours.value)) < 23 or 0 > int(str(startMinutes.value)) < 59 or 0 > int(str(startHours.value)) < 23 and 0 > int(str(startMinutes.value)) < 59:
-                output += ' Starting time required'
-            
-            if 0 > int(str(startHoursAdded.value)) < 999 or 0 > int(str(startMinutesAdded.value)) < 59 or 0 > int(str(startHoursAdded.value)) < 999 and 0 > int(str(startMinutesAdded.value)) < 59:
-                output += ' Added time required'
-            
-    warningDiv.textContent = output
+    if clockSystem.value == "":
+        outputlist.append('Clock time required')
+        
+    if clockSystem.value == '12clock': 
+        if timeForm.selectedIndex == 0:
+            outputlist.append('AM or PM needed')
+        
+        if 0 > int(str(startHours.value)) < 23 or 0 > int(str(startMinutes.value)) < 59 or 0 > int(str(startHours.value)) < 23 and 0 > int(str(startMinutes.value)) < 59:
+            outputlist.append('Starting time required')
+        
+        if 0 > int(str(startHoursAdded.value)) < 999 or 0 > int(str(startMinutesAdded.value)) < 59 or 0 > int(str(startHoursAdded.value)) < 999 and 0 > int(str(startMinutesAdded.value)) < 59:
+            outputlist.append('Added time required')
     
-    return warningDiv.textContent == "" or output == ""
+    if clockSystem.value == '24clock':
+        
+        if 0 > int(str(startHours.value)) < 23 or 0 > int(str(startMinutes.value)) < 59 or 0 > int(str(startHours.value)) < 23 and 0 > int(str(startMinutes.value)) < 59:
+            outputlist.append('Starting time required')
+        
+        if 0 > int(str(startHoursAdded.value)) < 999 or 0 > int(str(startMinutesAdded.value)) < 59 or 0 > int(str(startHoursAdded.value)) < 999 and 0 > int(str(startMinutesAdded.value)) < 59:
+            outputlist.append('Added time required')
+    
+    
+    for line in outputlist:
+        li = document.createElement('li')
+        li.style.listStyleType = 'none'
+        li.textContent = line
+        warningDiv.appendChild(li)
+        
+    
+    return len(outputlist) == 0 
        
     
 def timefunc(*args):
     
-    if checkValues(*args):
+    if checkValues():
         
         new_time = "Clock: "
 
@@ -171,12 +170,14 @@ def timefunc(*args):
         outputDiv.textContent = new_time
 
 def pressButtons(*args):   
-    document.getElementById('clockSystem').onclick = lambda *args: showTimeFormDiv()
-    document.getElementById('funcbutton').onclick = lambda *args: timefunc()
     
-def onchange(*args):
+    clockSystem.onclick = lambda *args: showTimeFormDiv()
+    functionButton.onclick = lambda *args: timefunc()
+    
+def onChange():
     clockSystem.onchange = showTimeFormDiv
     timeForm.onchange = showTimeDiv
+    
     
     
 if __name__ == '__main__':
@@ -195,10 +196,12 @@ if __name__ == '__main__':
     startHoursAdded = document.getElementById('startHoursAdded')        # Start time in hours with added hours element
     startMinutesAdded = document.getElementById('startMinutesAdded')    # Start time in minutes with added minutes element
     
+    functionButton = document.getElementById('functionButton')          # Function button wich print time at the end
+    
     warningDiv = document.getElementById('warningDiv')                  # Warning div
     outputDiv = document.getElementById('outputDiv')                    # Output div
     
-    onchange()
+    onChange()
     
     pressButtons()
     
