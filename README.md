@@ -1,17 +1,23 @@
 # Time calculator app
 
-## This program will calculate the time between two dates and times.
+## Description
 
-# Programming language used
+This program will calculate the time between two dates and times.
 
-## Python / Pyscript
+## Programming language used
 
-# Installation
+ - Python
+ - Pyscript
+ - html
+ - css
 
-## No need :)
+## Installation
 
-## Program is running on https://sericakitty.github.io/timecalculator/
+ No need :)
+
+## Program is running on 
+https://sericakitty.github.io/timecalculator/
 
 ## Licence
 
-## copyright Serica Kitty
+ Serica Kitty 2022
