@@ -1,0 +1,60 @@
+@import url('https://sericakitty.github.io/css/app.38b11d93.css'); 
+
+
+:root {
+    --main-btn-color: rgb(245, 111, 245);
+}
+
+.btn {
+    color: var(--btn-text-color);
+    background-color: var(--main-btn-color);
+    border-radius: 8px;
+    width: 100px;
+}
+
+main {
+    margin: 0 auto;
+}
+
+#header {
+    text-align: center;
+}
+
+.sourcecode {
+    display: inline-block;
+    text-align: center;
+}
+
+.sourcecodelink {
+    color: var(--src-code-color);
+}
+
+.sourcecodelink:hover {
+    color: var(--src-code-hover);
+}
+
+
+.centeringcontainer {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#clockSystem {
+    margin-bottom: 5px;
+}
+
+#timeStartDiv {
+    display: none;
+    margin-bottom: 5px;
+}
+
+#weekdayDiv {
+    display: none;
+    margin-bottom: 5px;
+}
+
+#timeAddedDiv {
+    display: none;
+    margin-bottom: 5px;
+}
+
